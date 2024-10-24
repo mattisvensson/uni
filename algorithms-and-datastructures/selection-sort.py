@@ -1,20 +1,24 @@
 import random
+import timeit
 
-# Create a list from 1 to 30
-arr = list(range(1, 30))
+def selection_sort(arr):
+  for i in range(len(arr)):
+    min_index = i
 
-# Shuffle the list to scramble the order
-random.shuffle(arr)
+    for j in range(i + 1, len(arr)):
+      if arr[j] < arr[min_index]:
+        new_min = arr[j]
+        arr[j] = arr[min_index]
+        arr[min_index] = new_min
+  return arr
 
-print("unsorted:", arr)
+def measure_time(arr_length):
+    arr = list(range(1, arr_length + 1))
+    random.shuffle(arr)
+    selection_sort(arr)
 
-for i in range(len(arr)):
-  min_index = i
+array_lengths = [100, 200, 1000, 2000, 4000, 10000, 20000, 40000]
 
-  for j in range(i + 1, len(arr)):
-    if arr[j] < arr[min_index]:
-      new_min = arr[j]
-      arr[j] = arr[min_index]
-      arr[min_index] = new_min
-    
-print("sorted:", arr)
+for length in array_lengths:
+    execution_time = timeit.timeit(lambda: measure_time(length), number=1)
+    print(f"Execution time for array length {length} over 1 run: {execution_time} seconds")
