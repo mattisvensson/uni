@@ -8,23 +8,25 @@
 
 int main()
 {
-  char is_prime[Max]; // For full compatibility (C89, C90, C11) Array size has to be a constant!
-  int i, j, n;
+  int max;
+  printf("Enter the maximum number of prime numbers that should be calculated: ");
+  scanf("%d", &max);
 
+  max += 1;
 
-  printf("Enter the maximum number of prime numbers that should be calculated");
-  scanf("%d", &n);
+  int is_prime[max]; // For full compatibility (C89, C90, C11) Array size has to be a constant!
+  int i, j;
 
   /* Initialize Array */
-  for (i = 0; i < Max; i = i + 1)
+  for (i = 0; i < max; i = i + 1)
     is_prime[i] = 1;
 
-  for (i = 2; i < Max; i = i + 1)
-    for (j = 2 * i; j < Max; j = j + i)
+  for (i = 2; i < max; i = i + 1)
+    for (j = 2 * i; j < max; j = j + i)
       is_prime[j] = 0;
 
   printf("Prime numbers are: ");
-  for (i = 2; i < Max; i = i + 1)
+  for (i = 2; i < max; i = i + 1)
     if (is_prime[i] > 0)
       printf("%d ", i);
 }
