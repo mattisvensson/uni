@@ -7,4 +7,5 @@
 # Unignore all dirs
 !*/
 
-*/.vscode
+*/**/.vscode
+*/**/__pycache__
