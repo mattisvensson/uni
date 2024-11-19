@@ -54,10 +54,9 @@ int main()
   {
     if (specials == 'c')
       printf(" ------ \n");
-    if (specials == 'v')
+    else if (specials == 'v')
       printf("(xxxxxx)\n");
-    else
-    if (specials == 'f')
+    else if (specials == 'f')
       printf("><(((('>\n");
     else
       printf("(mmmmmm)\n");
