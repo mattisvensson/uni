@@ -1,3 +1,6 @@
+// Call main with these arguments:
+// C01 Math1 C02 Java_Programming C03 Computer_Science S1234 Peter C01 C02 S0815 Paul C01 C03 S1015 Mary C02 C03 
+
 public class Main {
   public static void main(String[] args) {
     Course courseA = new Course(args[0], args[1]);
